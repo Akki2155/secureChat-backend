@@ -1,7 +1,8 @@
-const GroupModal=require("../models/group.js")
-const MessageModal= require("../models/message.js")
-const UserModel=require('../models/users.js');
-const socket= require("../helpers/socket.js");
+const GroupModal=require("../../models/group.js")
+const MessageModal= require("../../models/message.js")
+const UserModel=require('../../models/users.js');
+const socket= require("../../helpers/socket.js");
+const { getUserDetails } = require("../../middleware/Validations/userValidations.js");
 
 
 let messages=[{
@@ -36,7 +37,23 @@ const decryptGroupMessage=async(req, res)=>{
 }
 
 const getUserAllGroups=async(req, res)=>{
-    const {userId}=req.userId;
+    const {userId}=req.body;
+    console.log(userId)
+
+    const userGroups=await GroupModal.find({
+        $or: [
+          { owner: userId },                  
+          { members: { $in: [userId] } }      
+        ]
+      })
+
+    
+
+    return res.status(200).json({
+        res:"Success",
+        userGroups
+    })
+    
 }
 
 

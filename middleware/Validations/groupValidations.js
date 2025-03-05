@@ -4,7 +4,7 @@ const { getUserDetails } = require("./userValidations.js");
 
 const getGroupDetails=async(groupName)=>{
     const requestedGroup=await GroupModal.findOne({
-        groupName
+        id:groupName
     })
     if(!requestedGroup){
         return null;

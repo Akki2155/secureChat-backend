@@ -37,7 +37,8 @@ io.on('connection', (socket)=>{
 });
 
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.MONGO_CONNECTION_URL).then(()=>  server.listen(PORT, ()=>{
+console.log('DB_URL', process.env.MONGO_CONNECTION_URL.trim())
+mongoose.connect(process.env.MONGO_CONNECTION_URL.trim()).then(()=>  server.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`);
 })).catch((err)=>{
     console.error(`Error while starting and connecting DB ${err}`);

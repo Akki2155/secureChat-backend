@@ -20,11 +20,6 @@ const messageSchema= mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'Group',
         required:true
-    },
-    messageId:{
-        type:String,
-        unique:true, 
-        required:true
     }
 
 })
