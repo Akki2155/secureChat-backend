@@ -1,0 +1,17 @@
+version: v1
+services:
+  secure-chat-backend:
+    build: ./
+    container_name: "secure-chat-backend"
+    ports:
+      - "${HOST_PORT}:${PORT}"
+    environment:
+      - PORT=${PORT}
+      - SECRET_MESSAGE=${SECRET_MESSAGE}
+      - SECRET_PATH=${SECRET_PATH}
+      - MONGO_CONNECTION_URL=${MONGO_CONNECTION_URL}
+      - JWT_PASS_KEY=${JWT_PASS_KEY}
+      - HOST_PORT=${HOST_PORT}
+    volumes:
+      - .:/app
+      - /app/node_modules  

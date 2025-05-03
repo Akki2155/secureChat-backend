@@ -17,7 +17,7 @@ const auth=async(req, res, next)=>{
         }
 
         if(token && isCustomToken){
-            decodedData= jwt.decode(token, process.env.JWTPASSKEY);    
+            decodedData= jwt.decode(token, process.env.JWT_PASS_KEY);    
             if(!decodedData){
                 return res.status(401).json({
                     status:"Failed",

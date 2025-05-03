@@ -96,7 +96,7 @@ const userlogin=async (req, res)=>{
         emailId,
         phonenumber:existingUser.phonenumber,
         id:existingUser._id
-    }, process.env.JWTPASSKEY,  { expiresIn: isRemeberMeEnabled ? "30d": "1h" })
+    },  process.env.JWT_PASS_KEY,  { expiresIn: isRemeberMeEnabled ? "30d": "1h" })
 
     return res.status(200).json({
         res:"Success",
