@@ -1,0 +1,3 @@
+//Group ENUMS
+
+export const USER_NOT_MEMBER='USER_NOT_MEMBER'

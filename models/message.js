@@ -7,7 +7,10 @@ const messageSchema= mongoose.Schema({
         ref:'User',
         required:true
     },
-    edited: Boolean,
+    edited: {
+        type: Boolean,
+        default: false
+    },
     editedHistory:[String],
     sentAt:{
         type: String,
@@ -16,11 +19,6 @@ const messageSchema= mongoose.Schema({
     groupId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Group',
-        required:true
-    },
-    messageId:{
-        type:String,
-        unique:true, 
         required:true
     }
 

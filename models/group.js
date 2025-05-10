@@ -6,11 +6,6 @@ const groupSchema=mongoose.Schema({
         required: true,
         unique: true
     },
-    groupDecodekey:{
-        type:String,
-        required: true,
-        unique:true
-    },
     owner:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User',
@@ -20,6 +15,10 @@ const groupSchema=mongoose.Schema({
     members:{
         type:[mongoose.Schema.Types.ObjectId],
         ref:"User"
+    },
+    password:{
+        type:String,
+        required:true
     } 
 
 })
